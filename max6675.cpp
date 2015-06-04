@@ -10,7 +10,7 @@ MAX6675::MAX6675(int8_t SCLK, int8_t CS, int8_t MISO) {
   sclk = SCLK;
   cs = CS;
   miso = MISO;
-
+  cal = 0;
   //define pin modes
   pinMode(cs, OUTPUT);
   pinMode(sclk, OUTPUT); 
@@ -39,11 +39,15 @@ double MAX6675::readCelsius(void) {
 
   v >>= 3;
 
-  return v*0.25;
+  return (v*0.25)+cal;
 }
 
 double MAX6675::readFahrenheit(void) {
   return readCelsius() * 9.0/5.0 + 32;
+}
+
+void MAX6675::calibrate(int8_t CAL) {
+  cal = CAL;
 }
 
 byte MAX6675::spiread(void) { 

@@ -12,6 +12,7 @@ max6675	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
+calibrate KEYWORD2
 readCelsius	KEYWORD2
 readFahrenheit	KEYWORD2
 readFarenheit	KEYWORD2

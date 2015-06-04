@@ -13,9 +13,10 @@ class MAX6675 {
 
   double readCelsius(void);
   double readFahrenheit(void);
+  void calibrate(int8_t CAL);
   // For compatibility with older versions:
   double readFarenheit(void) { return readFahrenheit(); }
  private:
-  int8_t sclk, miso, cs;
+  int8_t sclk, miso, cs, cal;
   uint8_t spiread(void);
 };
